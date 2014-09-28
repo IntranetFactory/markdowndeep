@@ -1,0 +1,32 @@
+Markdown GFM Extensions
+--
+
+A
+B
+
+a
+
+b
+
+```html
+<h1>test</h1>
+```
+
+```sql
+select * from customers
+```
+
+~~Strikethrough: Mistaken text.~~
+
+Here is a footnote[^footnote].
+
+  [^footnote]: Here is the *text* of the **footnote**.
+
+| Item      | Value | Qty |
+| --------- | -----:|:--: |
+| Computer  | $1600 | 5   |
+| Phone     |   $12 | 12  |
+| Pipe      |    $1 |234  |
+
+
+

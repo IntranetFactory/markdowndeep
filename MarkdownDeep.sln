@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownDeep", "MarkdownDeep\MarkdownDeep.csproj", "{1569ED47-C7C9-4261-B6F4-7445BD0F2C95}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownDeepTests", "MarkdownDeepTests\MarkdownDeepTests.csproj", "{CD1F5BFF-0118-4994-86A2-92658A36CE1B}"
@@ -19,7 +21,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownDeepJS", "MarkdownD
 		{1569ED47-C7C9-4261-B6F4-7445BD0F2C95} = {1569ED47-C7C9-4261-B6F4-7445BD0F2C95}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownDeepSample", "MarkdownDeepSample\MarkdownDeepSample.csproj", "{1E5DE401-A214-4698-A48E-1144B37E437F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownDeepSampleOld", "MarkdownDeepSample\MarkdownDeepSampleOld.csproj", "{1E5DE401-A214-4698-A48E-1144B37E437F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownDeepSample2013", "MarkdownDeepSample2013\MarkdownDeepSample2013.csproj", "{84F2C55A-B2E9-4071-B0E6-68B2C0347B99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +105,16 @@ Global
 		{1E5DE401-A214-4698-A48E-1144B37E437F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{1E5DE401-A214-4698-A48E-1144B37E437F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{1E5DE401-A214-4698-A48E-1144B37E437F}.Release|Win32.ActiveCfg = Release|Any CPU
+		{84F2C55A-B2E9-4071-B0E6-68B2C0347B99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84F2C55A-B2E9-4071-B0E6-68B2C0347B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84F2C55A-B2E9-4071-B0E6-68B2C0347B99}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{84F2C55A-B2E9-4071-B0E6-68B2C0347B99}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{84F2C55A-B2E9-4071-B0E6-68B2C0347B99}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{84F2C55A-B2E9-4071-B0E6-68B2C0347B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84F2C55A-B2E9-4071-B0E6-68B2C0347B99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84F2C55A-B2E9-4071-B0E6-68B2C0347B99}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{84F2C55A-B2E9-4071-B0E6-68B2C0347B99}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{84F2C55A-B2E9-4071-B0E6-68B2C0347B99}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
