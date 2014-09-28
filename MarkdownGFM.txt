@@ -8,8 +8,8 @@ a
 
 b
 
-```html
-<h1>test</h1>
+```
+<h1>plain fenced test</h1>
 ```
 
 ```sql
@@ -17,6 +17,9 @@ select * from customers
 ```
 
 ~~Strikethrough: Mistaken text.~~
+
+Url http://example.com
+
 
 Here is a footnote[^footnote].
 
