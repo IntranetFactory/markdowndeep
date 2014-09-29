@@ -258,7 +258,15 @@ namespace MarkdownDeep
 					}
 					else
 					{
-						b.Append("<pre><code>");
+                        if (this.hasLanguage)
+                        {
+                            b.Append(string.Format(@"<pre><code class=""language-{0}""/>", this.languageName));
+                        }
+                        else
+                        {
+                            b.Append("<pre><code>");
+                        }
+						
 						foreach (var line in children)
 						{
 							m.HtmlEncodeAndConvertTabsToSpaces(b, line.buf, line.contentStart, line.contentLen);
@@ -481,6 +489,8 @@ namespace MarkdownDeep
 		}
 
 		internal BlockType blockType;
+        internal bool hasLanguage;
+        internal string languageName;
 		internal string buf;
 		internal int contentStart;
 		internal int contentLen;

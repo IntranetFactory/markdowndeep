@@ -1494,6 +1494,13 @@ namespace MarkdownDeep
 			if (strFence.Length < 3)
 				return false;
 
+            // recognize language if exists
+            if (!IsLineSpace(current) && !IsLineEnd(current))
+            {
+                b.hasLanguage = true;
+                b.languageName = GetLanguageName();
+            }
+
 			// Rest of line must be blank
 			SkipLinespace();
 			if (!eol)
@@ -1543,6 +1550,17 @@ namespace MarkdownDeep
 
 			return true;
 		}
+
+        private string GetLanguageName()
+        {
+            // Extract the fence
+            Mark();
+            while (!IsLineSpace(current) && !IsLineEnd(current))
+                SkipForward(1);
+            string languageName = Extract();
+
+            return languageName;
+        }
 
 		Markdown m_markdown;
 		BlockType m_parentType;
