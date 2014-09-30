@@ -260,7 +260,7 @@ namespace MarkdownDeep
 					{
                         if (this.hasLanguage)
                         {
-                            b.Append(string.Format(@"<pre><code class=""language-{0}""/>", this.languageName));
+                            b.Append(string.Format(@"<pre><code class=""language-{0}"">", this.languageName));
                         }
                         else
                         {
