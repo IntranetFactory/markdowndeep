@@ -63,7 +63,8 @@ namespace MarkdownDeep
 			if (url.StartsWith("mailto:"))
 			{
 				b.Append("<a href=\"");
-				Utils.HtmlRandomize(b, url);
+                b.Append(url);
+                //Utils.HtmlRandomize(b, url);
 				b.Append('\"');
 				if (!String.IsNullOrEmpty(title))
 				{
@@ -72,7 +73,8 @@ namespace MarkdownDeep
 					b.Append('\"');
 				}
 				b.Append('>');
-				Utils.HtmlRandomize(b, link_text);
+                //Utils.HtmlRandomize(b, link_text);
+                b.Append(link_text);
 				b.Append("</a>");
 			}
 			else
