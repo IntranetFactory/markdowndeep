@@ -43,7 +43,7 @@ namespace MarkdownDeep
         private static string urlMathEvaluator(Match match)
         {
             string result = string.Empty;
-            if (!(match.Groups.Count > 2 && match.Groups[1].Value == "("))
+            if (!(match.Groups.Count > 2 && (match.Groups[1].Value == "(") || match.Groups[1].Value == "<"))
             {
                 string value = match.Value.Trim();
                 result = string.Format(" <{0}>", value);
