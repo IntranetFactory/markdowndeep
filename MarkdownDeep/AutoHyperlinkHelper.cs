@@ -24,7 +24,7 @@ namespace MarkdownDeep
                 result = urlRegex.Replace(inputText, urlMathEvaluator);
             }
 
-            Regex mailtoRegex = new Regex(@"[\w\.]+@[\w\.]+\.[\w\.]+");
+            Regex mailtoRegex = new Regex(@"(.?)[\w\.]+@[\w\.]+\.[\w\.]+");
             if (mailtoRegex.IsMatch(inputText))
             {
                 result = mailtoRegex.Replace(inputText, mailtoMatchEvaluator);
@@ -36,7 +36,16 @@ namespace MarkdownDeep
         private static string mailtoMatchEvaluator(Match match)
         {
             string result = string.Empty;
-            result = string.Format("<{0}>", match.Value.Trim());
+            if (!(match.Groups.Count > 1 && (match.Groups[1].Value == "<")))
+            {
+                string value = match.Value.Trim();
+                result = string.Format(" <{0}>", value);
+            }
+            else
+            {
+                result = match.Groups[0].Value;
+            }
+
             return result;
         }
 
