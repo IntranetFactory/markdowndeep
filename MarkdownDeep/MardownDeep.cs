@@ -816,7 +816,12 @@ namespace MarkdownDeep
 		}
 
 		// HtmlEncode a range in a string to a specified string builder
-		internal void HtmlEncode(StringBuilder dest, string str, int start, int len)
+        internal void HtmlEncode(StringBuilder dest, string str, int start, int len)
+        {
+            HtmlEncode( dest,  str,  start,  len, false);
+        }
+
+		internal void HtmlEncode(StringBuilder dest, string str, int start, int len, bool newlineBR)
 		{
 			m_StringScanner.Reset(str, start, len);
 			var p = m_StringScanner;
@@ -840,6 +845,17 @@ namespace MarkdownDeep
 					case '\"':
 						dest.Append("&quot;");
 						break;
+
+                    case '\n':
+                        if (newlineBR)
+                        {
+                            dest.Append("<br>\n");
+                        }
+                        else
+                        {
+                            dest.Append("\n");
+                        }
+                        break;
 
 					default:
 						dest.Append(ch);

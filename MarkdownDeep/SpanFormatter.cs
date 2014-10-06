@@ -175,7 +175,12 @@ namespace MarkdownDeep
 				{
 					case TokenType.Text:
 						// Append encoded text
-						m_Markdown.HtmlEncode(sb, str, t.startOffset, t.length);
+                        //m_Markdown.HtmlEncode(sb, str, t.startOffset, t.length);
+
+                        // encode newlines as <br> in paragraph text 
+                        string text = str.Substring(t.startOffset, t.length);
+                        text = text.Replace("\r", "");  // remove windows CR first                     
+                        m_Markdown.HtmlEncode(sb, text, 0, text.Length, true);
 						break;
 
 					case TokenType.HtmlTag:
