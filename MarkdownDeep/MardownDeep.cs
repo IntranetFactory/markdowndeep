@@ -58,14 +58,17 @@ namespace MarkdownDeep
 			// Process blocks
 			return new BlockProcessor(this, MarkdownInHtml).Process(str);
 		}
-		public string Transform(string str)
+		
+        public string Transform(string str)
 		{
+            // transform input str; enclose hyperlinks in <>
+            str = AutoHyperlinkHelper.PreProcessEncloseHyperlinksInGtLt(str);
 			Dictionary<string, LinkDefinition> defs;
-			return Transform(str, out defs);
+            return Transform(str, out defs);
 		}
 
 		// Transform a string
-		public string Transform(string str, out Dictionary<string, LinkDefinition> definitions)
+		private string Transform(string str, out Dictionary<string, LinkDefinition> definitions)
 		{
 			// Build blocks
 			var blocks = ProcessBlocks(str);

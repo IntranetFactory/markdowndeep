@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abbreviation.cs" />
+    <Compile Include="AutoHyperlinkHelper.cs" />
     <Compile Include="BlockProcessor.cs" />
     <Compile Include="FootnoteReference.cs" />
     <Compile Include="HtmlTag.cs" />
