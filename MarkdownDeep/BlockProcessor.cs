@@ -877,6 +877,28 @@ namespace MarkdownDeep
 				}
 			}
 
+            if (ch == '~' && CharAtOffset(1) == '~')
+            {
+                int revertOffset = 2;
+                SkipForward(2);
+                b.contentStart = position;
+                while (current != '~' && !eol)
+                {
+                    revertOffset += 1;
+                    SkipForward(1);
+                }
+                if (!eol && current == '~' && CharAtOffset(1) == '~')
+                {
+                    b.contentEnd = position;
+                    SkipForward(2);
+                    return BlockType.doubleTilde;
+                }
+                else
+                {
+                    SkipForward(-revertOffset);
+                }
+            }
+
 			// Nothing special
 			return BlockType.p;
 		}
