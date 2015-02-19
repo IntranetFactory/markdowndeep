@@ -76,33 +76,37 @@ namespace MarkdownDeep
                 //Utils.HtmlRandomize(b, link_text);
                 b.Append(link_text);
 				b.Append("</a>");
-			}
-			else
-			{
-				HtmlTag tag = new HtmlTag("a");
+            }
+            else if (url.Contains("jsfiddle.net")) {
+                string jsfiddleText = string.Format("<iframe src=\"{0}\" style=\"width: 100%; height: 300px;\"></iframe>", link_text);
+                b.Append(jsfiddleText);
+            }
+            else
+            {
+                HtmlTag tag = new HtmlTag("a");
 
-				// encode url
-				StringBuilder sb = m.GetStringBuilder();
-				Utils.SmartHtmlEncodeAmpsAndAngles(sb, url);
-				tag.attributes["href"] = sb.ToString();
+                // encode url
+                StringBuilder sb = m.GetStringBuilder();
+                Utils.SmartHtmlEncodeAmpsAndAngles(sb, url);
+                tag.attributes["href"] = sb.ToString();
 
-				// encode title
-				if (!String.IsNullOrEmpty(title ))
-				{
-					sb.Length = 0;
-					Utils.SmartHtmlEncodeAmpsAndAngles(sb, title);
-					tag.attributes["title"] = sb.ToString();
-				}
+                // encode title
+                if (!String.IsNullOrEmpty(title))
+                {
+                    sb.Length = 0;
+                    Utils.SmartHtmlEncodeAmpsAndAngles(sb, title);
+                    tag.attributes["title"] = sb.ToString();
+                }
 
-				// Do user processing
-				m.OnPrepareLink(tag);
+                // Do user processing
+                m.OnPrepareLink(tag);
 
-				// Render the opening tag
-				tag.RenderOpening(b);
+                // Render the opening tag
+                tag.RenderOpening(b);
 
-				b.Append(link_text);	  // Link text already escaped by SpanFormatter
-				b.Append("</a>");
-			}
+                b.Append(link_text);	  // Link text already escaped by SpanFormatter
+                b.Append("</a>");
+            }
 		}
 
 		internal void RenderImg(Markdown m, StringBuilder b, string alt_text)
