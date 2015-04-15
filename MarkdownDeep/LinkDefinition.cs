@@ -229,7 +229,9 @@ namespace MarkdownDeep
 				r.url = Utils.UnescapeString(url.Trim(), ExtraMode);
 
 				// Skip whitespace
-				p.SkipWhitespace();
+                // #597 markdown deep issue
+                // after long debugging session turns out that skipping whitespace here is a bug. Regression testing clearly shows this.
+                // p.SkipWhitespace();
 			}
 			else
 			{
@@ -259,7 +261,7 @@ namespace MarkdownDeep
 				r.url = Utils.UnescapeString(p.Extract().Trim(), ExtraMode);
 			}
 
-			p.SkipLinespace();
+            p.SkipLinespace();
 
 			// End of inline target
 			if (p.DoesMatch(')'))
@@ -292,9 +294,9 @@ namespace MarkdownDeep
 						p.position = posLineEnd;
 						return r;
 					}
-					else
-						return null;
-			}
+                    else
+                        return null;
+                    }
 
 			// Skip the opening title delimiter
 			p.SkipForward(1);
